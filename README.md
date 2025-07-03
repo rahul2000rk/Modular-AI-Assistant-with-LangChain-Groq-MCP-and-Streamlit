@@ -14,3 +14,4 @@ A modular AI assistant built with LangChain, Groq LLMs, and MCP (Modular Command
 🛠️ Easily extendable with new tools via the MCP protocol
 
 Perfect for developers looking to build intelligent, modular assistants capable of reasoning, answering domain-specific questions, and interacting via a clean UI.
+![image](https://github.com/user-attachments/assets/05c7f7d0-e73a-43aa-8a67-c0a9433609dd)
