@@ -1,0 +1,16 @@
+streamlit
+langchain
+langchain-groq
+langchain-mcp-adapters
+langgraph
+python-dotenv
+faiss-cpu
+sentence-transformers
+pymupdf
+tiktoken
+pypdf
+langchain-community
+langchain-huggingface
+huggingface_hub
+PyPDF2
+pypdf
