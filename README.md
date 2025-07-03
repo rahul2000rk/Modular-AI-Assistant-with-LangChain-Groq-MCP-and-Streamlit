@@ -15,5 +15,8 @@ A modular AI assistant built with LangChain, Groq LLMs, and MCP (Modular Command
 
 Perfect for developers looking to build intelligent, modular assistants capable of reasoning, answering domain-specific questions, and interacting via a clean UI.
 
+Run
+python tools/weather_tool.py  
+streamlit run assistant_streamlit.py
 
 ![image](https://github.com/user-attachments/assets/05c7f7d0-e73a-43aa-8a67-c0a9433609dd)
