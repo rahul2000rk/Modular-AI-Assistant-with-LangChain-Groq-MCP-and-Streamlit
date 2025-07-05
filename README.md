@@ -1,23 +1,32 @@
-# Modular-AI-Assistant-with-LangChain-Groq-MCP-and-Streamlit
-a modular AI assistant featuring a Streamlit-based chat interface for interactive queries and PDF-based Retrieval Augmented Generation (RAG).
+# 🤖 Modular AI Assistant with LangChain, Groq & MCP Tools
 
-A modular AI assistant built with LangChain, Groq LLMs, and MCP (Modular Command Protocol), featuring:
+This project is a modular, extendable **AI Assistant** built using:
 
-✅ Tool-based architecture using MCP servers (Math, Weather, Time, PDF RAG)
+- 🧠 [LangChain](https://www.langchain.com/)
+- ⚡ [Groq](https://console.groq.com/) LLMs (Qwen-32B)
+- 🔌 [MCP (Modular Command Protocol)](https://github.com/langchain-ai/mcp)
+- 🌐 Real-time tools like weather, time, calculator, etc.
+- 🖼️ [Streamlit](https://streamlit.io/) UI for interactive chat
 
-🧠 LLM agent powered by Groq’s ultra-fast inference (e.g. Qwen & LLaMA3)
+---
 
-📄 PDF question answering via RAG (Retrieval-Augmented Generation)
+## 📸 Demo
 
-💬 Streamlit GUI with live chat interface and document upload
+![Demo Screenshot](![image](https://github.com/user-attachments/assets/b1d3dea5-3061-4238-b79f-24046cea4266)
+) <!-- Add your screenshot if available -->
 
-🛠️ Easily extendable with new tools via the MCP protocol
+---
 
-Perfect for developers looking to build intelligent, modular assistants capable of reasoning, answering domain-specific questions, and interacting via a clean UI.
+## 🧰 Features
 
-Run
+- 🧮 Math operations (add, subtract, multiply)
+- 🌤️ Real-time weather via OpenWeatherMap API
+- ⏰ Current date and time
+- 🧠 LangChain ReAct agent with Groq LLM
+- 💬 Streamlit web chat interface
+- 🔌 Easily extendable toolset via MCP servers
 
-python tools/weather_tool.py  
-streamlit run assistant_streamlit.py
+---
 
-![image](https://github.com/user-attachments/assets/05c7f7d0-e73a-43aa-8a67-c0a9433609dd)
+## 📂 Project Structure
+
