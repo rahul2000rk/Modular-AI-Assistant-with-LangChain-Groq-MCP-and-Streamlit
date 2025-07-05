@@ -10,12 +10,15 @@ from langgraph.prebuilt import create_react_agent
 load_dotenv()
 os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
 
-st.set_page_config(page_title="AI Assistant", layout="centered")
-st.title("📚 AI Assistant with Modular Tools")
+# Streamlit setup
+st.set_page_config(page_title="AI Assistant", page_icon="🤖", layout="centered")
+st.title("🧠 Modular AI Assistant")
+st.caption("Powered by LangChain, Groq, and MCP tools")
 
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
+# Async LangChain setup
 @st.cache_resource
 def setup_agent():
     client = MultiServerMCPClient({
@@ -24,57 +27,44 @@ def setup_agent():
             "args": ["tools/math_tool.py"],
             "transport": "stdio"
         },
-        "weather": {
-            "url": "http://localhost:8000/mcp",
-            "transport": "streamable_http"
-        },
         "time": {
             "command": "python",
             "args": ["tools/time_tool.py"],
             "transport": "stdio"
         },
-        "pdf": {
-            "command": "python",
-            "args": ["tools/pdf_tool.py"],
-            "transport": "stdio"
+        "weather": {
+            "url": "http://localhost:8000/mcp",
+            "transport": "streamable_http"
         }
     })
-    async def build():
+
+
+    async def build_agent():
         tools = await client.get_tools()
         model = ChatGroq(model="qwen-qwq-32b")
-        return create_react_agent(model, tools), client
-    return asyncio.run(build())
+        return create_react_agent(model, tools)
 
-agent, tool_client = setup_agent()
+    return asyncio.run(build_agent())
 
-# Upload & load PDF to the pdf_tool
-st.subheader("📄 Upload a PDF for Question Answering")
-uploaded_file = st.file_uploader("Upload PDF", type=["pdf"])
-if uploaded_file:
-    temp_path = f"temp_{uploaded_file.name}"
-    with open(temp_path, "wb") as f:
-        f.write(uploaded_file.read())
-    st.info("Indexing PDF...")
-    result = asyncio.run(tool_client.invoke_tool("pdf", "load_pdf_text", {"file_path": temp_path}))
-    st.success(result)
+agent = setup_agent()
 
-# Chat
-st.subheader("💬 Ask Me Anything")
-user_input = st.chat_input("Ask a question...")
+# Chat UI
+user_input = st.chat_input("Ask me anything...")
+
 if user_input:
     st.session_state.chat_history.append(("user", user_input))
 
-    async def run_query():
+    async def get_agent_response():
         response = await agent.ainvoke({
             "messages": [{"role": "user", "content": user_input}]
         })
         return response["messages"][-1].content
 
     with st.spinner("Thinking..."):
-        response = asyncio.run(run_query())
-        st.session_state.chat_history.append(("assistant", response))
+        response_text = asyncio.run(get_agent_response())
+        st.session_state.chat_history.append(("assistant", response_text))
 
 # Display chat history
-for role, msg in st.session_state.chat_history:
-    with st.chat_message(role):
-        st.markdown(msg)
+for sender, message in st.session_state.chat_history:
+    with st.chat_message(sender):
+        st.markdown(message)
