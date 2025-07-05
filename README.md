@@ -29,4 +29,46 @@ This project is a modular, extendable **AI Assistant** built using:
 ---
 
 ## 📂 Project Structure
+ai-assistant/
+│
+├── tools/
+│ ├── math_tool.py # Math operations
+│ ├── time_tool.py # Date & time
+│ └── weather_tool.py # Real-time weather (OpenWeatherMap)
+│
+├── assistant_streamlit.py # Streamlit UI + Agent logic
+├── .env # API keys
+├── requirements.txt # Python dependencies
+└── README.md
 
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/ai-assistant-mcp.git
+cd ai-assistant-mcp
+
+pip install -r requirements.txt
+
+GROQ_API_KEY=your_groq_api_key_here
+OPENWEATHER_API_KEY=your_openweathermap_api_key_here
+
+Get Groq key: https://console.groq.com
+Get Weather key: https://openweathermap.org/api
+
+🧪 Run the Assistant
+1. Start the Weather Server (in a terminal)
+python tools/weather_tool.py
+2. Run the Streamlit App
+streamlit run assistant_streamlit.py
+
+💬 Sample Prompts
+“What’s 15 times 3 plus 2?”
+
+“What is the weather in Bangalore?”
+
+“What’s the current time?”
