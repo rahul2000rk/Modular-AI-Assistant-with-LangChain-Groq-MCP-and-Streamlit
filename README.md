@@ -30,16 +30,27 @@ This project is a modular, extendable **AI Assistant** built using:
 
 ## 📂 Project Structure
 ai-assistant/
+
 │
+
 ├── tools/
+
 │ ├── math_tool.py # Math operations
+
 │ ├── time_tool.py # Date & time
+
 │ └── weather_tool.py # Real-time weather (OpenWeatherMap)
+
 │
+
 ├── assistant_streamlit.py # Streamlit UI + Agent logic
+
 ├── .env # API keys
+
 ├── requirements.txt # Python dependencies
+
 └── README.md
+
 
 
 ---
