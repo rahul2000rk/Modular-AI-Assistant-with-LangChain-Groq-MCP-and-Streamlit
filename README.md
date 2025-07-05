@@ -12,8 +12,8 @@ This project is a modular, extendable **AI Assistant** built using:
 
 ## 📸 Demo
 
-![Demo Screenshot](![image](https://github.com/user-attachments/assets/b1d3dea5-3061-4238-b79f-24046cea4266)
-) <!-- Add your screenshot if available -->
+![image](https://github.com/user-attachments/assets/fa92f09f-0aba-4649-b22d-a438ff7736b5)
+
 
 ---
 
