@@ -1,16 +1,18 @@
-streamlit
-langchain
-langchain-groq
-langchain-mcp-adapters
-langgraph
-python-dotenv
-faiss-cpu
-sentence-transformers
-pymupdf
-tiktoken
-pypdf
-langchain-community
-langchain-huggingface
-huggingface_hub
-PyPDF2
-pypdf
+# Core AI & LangChain
+langchain>=0.1.14
+langchain-groq>=0.0.6
+langgraph>=0.0.30
+langchain-mcp-adapters>=0.0.3
+
+# MCP Toolkit
+mcp>=0.0.9
+
+# Web UI
+streamlit>=1.35.0
+
+# API handling
+requests>=2.31.0
+python-dotenv>=1.0.1
+
+# Optional: for Windows asyncio fixes (if needed)
+nest_asyncio>=1.6.0
